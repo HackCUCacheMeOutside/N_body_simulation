@@ -22,7 +22,7 @@ public:
     ///
     /// \brief Returns the postion of the body
     ///
-    QVector2D postion() const;
+    QVector2D position() const;
 
     ///
     /// \brief Returns the mass of the body
@@ -41,7 +41,7 @@ public:
 
 private:
     const std::string name_;
-    QVector2D postion_;
+    QVector2D position_;
     QVector2D velocity_;
     QVector2D acceleration_;
 

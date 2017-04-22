@@ -37,3 +37,8 @@ std::string System::toString()
 
     return string;
 }
+
+std::vector<std::shared_ptr<Body> > System::bodys() const
+{
+    return bodys_;
+}
