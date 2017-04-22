@@ -4,6 +4,8 @@
 #include <vector>
 #include "body.hpp"
 
+constexpr double delta = 1; // Time interval
+
 class System
 {
 public:
