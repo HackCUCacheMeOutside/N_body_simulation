@@ -29,6 +29,8 @@ public:
     std::string toString();
 
 
+    std::vector<std::shared_ptr<Body> > bodys() const;
+
 private:
     std::vector<std::shared_ptr<Body>> bodys_;
     MainWindow *const mainWindow_; // Back pointer to the main window
