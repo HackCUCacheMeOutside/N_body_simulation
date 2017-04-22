@@ -23,8 +23,11 @@ public:
     /// @brief Gets the graphics scene
     QGraphicsScene* scene() const;
 
-    /// @brief Gets the system  of main window
+    /// @brief Gets the system of main window
     System system() const;
+
+    /// @brief Updates the data
+    void update();
 
 private:
     Ui::MainWindow *ui_;

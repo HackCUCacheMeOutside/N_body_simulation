@@ -45,3 +45,8 @@ std::string Body::toString()
             "\nmass " +  std::to_string(mass_);
 
 }
+
+double Body::radius() const
+{
+    return radius_;
+}

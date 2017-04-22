@@ -26,13 +26,17 @@ void BodyGraphicsItem::paint(QPainter* painter,
                              const QStyleOptionGraphicsItem* option,
                              QWidget* widget)
 {
-    // Body
-    painter->setBrush(Qt::black);
-    painter->drawEllipse(-10, -10, 10, 10);
+    auto radius = static_cast<int>(body_->radius());
+
+    painter->translate(radius / 2, radius / 2);
+    painter->setBrush(Qt::red);
+    painter->drawEllipse(-radius, -radius, radius, radius);
 }
 
 void BodyGraphicsItem::advance(int step)
 {
     if (!step)
         return;
+
+    setPos(body_->postion().toPointF());
 }

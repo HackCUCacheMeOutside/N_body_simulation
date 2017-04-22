@@ -34,7 +34,10 @@ public:
     ///
     std::string toString();
 
-
+    ///
+    /// \brief Gets the radius of the body
+    ///
+    double radius() const;
 
 private:
     const std::string name_;

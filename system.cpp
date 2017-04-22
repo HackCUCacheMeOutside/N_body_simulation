@@ -8,7 +8,6 @@
 
 System::System(MainWindow *mainWindow) : mainWindow_{mainWindow}
 {
-
 }
 
 void System::addBody(Body body)
@@ -17,6 +16,7 @@ void System::addBody(Body body)
     bodys_.push_back(body_ptr);
 
     auto bodyItem = new BodyGraphicsItem{body_ptr};
+    bodyItem->setPos(body_ptr->postion().toPointF());
     mainWindow_->scene()->addItem(bodyItem);
 
 }
