@@ -1,7 +1,7 @@
 #ifndef BODY_HPP
 #define BODY_HPP
 
-#include <qvector2d.h>
+#include <QVector2D>
 #include <string>
 
 class System;
@@ -35,6 +35,7 @@ public:
     std::string toString();
 
 
+
 private:
     const std::string name_;
     QVector2D postion_;
@@ -42,7 +43,7 @@ private:
     QVector2D acceleration_;
 
     const double mass_;
-    const int radius_; // Radius decides how big the body look on string
+    const double radius_; // Radius decides how big the body look on string
 };
 
 #endif // BODY_HPP

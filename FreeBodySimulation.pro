@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+CONFIG += c++14
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,10 +16,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     body.cpp \
-    system.cpp
+    system.cpp \
+    bodygraphicsitem.cpp
 
 HEADERS  += mainwindow.hpp \
     body.hpp \
-    system.hpp
+    system.hpp \
+    bodygraphicsitem.hpp
 
 FORMS    += mainwindow.ui
