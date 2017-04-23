@@ -2,8 +2,10 @@
 
 #include "bodygraphicsitem.hpp"
 
-BodyGraphicsItem::BodyGraphicsItem(std::shared_ptr<Body> body)
-    : body_{body}
+BodyGraphicsItem::BodyGraphicsItem(const std::shared_ptr<Body>& body,
+                                   const QColor& color)
+    : body_{body},
+      color_{color}
 {
 
 }
@@ -30,7 +32,7 @@ void BodyGraphicsItem::paint(QPainter* painter,
     auto radius = static_cast<int>(body_->radius());
 
     painter->translate(radius / 2, radius / 2);
-    painter->setBrush(Qt::red);
+    painter->setBrush(color_);
     painter->drawEllipse(-radius, -radius, radius, radius);
 }
 

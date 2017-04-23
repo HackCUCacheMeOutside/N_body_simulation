@@ -12,12 +12,12 @@ System::System(MainWindow *mainWindow) : mainWindow_{mainWindow}
 {
 }
 
-void System::addBody(Body body)
+void System::addBody(Body body, const QColor& color)
 {
     shared_ptr<Body> body_ptr = std::make_shared<Body>(body);
     bodies_.push_back(body_ptr);
 
-    auto bodyItem = new BodyGraphicsItem{body_ptr};
+    auto bodyItem = new BodyGraphicsItem{body_ptr, color};
     bodyItem->setPos(body_ptr->position().toPointF());
     mainWindow_->scene()->addItem(bodyItem);
 }

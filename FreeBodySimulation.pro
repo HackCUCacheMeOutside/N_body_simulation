@@ -25,3 +25,6 @@ HEADERS  += mainwindow.hpp \
     bodygraphicsitem.hpp
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    sim.qrc

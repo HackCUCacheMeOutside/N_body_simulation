@@ -22,7 +22,7 @@ Body::Body(std::string name, double mass, double radius,
 void Body::update(const System& system)
 {
     QVector2D netGravitationalForce{0, 0};
-    constexpr double G = 0.01;
+    constexpr double G = 1;
 
     // Calculates force
     const auto bodies = system.bodys();
@@ -38,8 +38,8 @@ void Body::update(const System& system)
     acceleration_ = netGravitationalForce / mass_;
 
     // Todo: Updates the velocity and position
-    velocity_ += acceleration_ * delta;
-    position_ += velocity_ * delta;
+    velocity_ += acceleration_ * delta / 1000;
+    position_ += velocity_ * delta / 1000;
 }
 
 std::string Body::name() const

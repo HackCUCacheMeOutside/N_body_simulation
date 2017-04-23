@@ -4,9 +4,11 @@
 #include <memory>
 #include <vector>
 #include <QVector2D>
+#include <QColor>
+
 #include "body.hpp"
 
-constexpr double delta = 50; // Time interval is ms
+constexpr int delta = 50; // Time interval is ms
 
 class Body;
 class MainWindow;
@@ -19,8 +21,9 @@ public:
     ///
     /// \brief Add a new body to the system
     /// \param body The new body
+    /// \param color The color of the body
     ///
-    void addBody(Body body);
+    void addBody(Body body, const QColor& color);
 
     ///
     /// \brief Clear all the bodies

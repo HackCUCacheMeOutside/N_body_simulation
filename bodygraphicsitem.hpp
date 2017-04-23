@@ -9,7 +9,7 @@
 class BodyGraphicsItem : public QGraphicsItem
 {
 public:
-    BodyGraphicsItem(std::shared_ptr<Body> body);
+    BodyGraphicsItem(const std::shared_ptr<Body>& body, const QColor& color);
 
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
@@ -21,6 +21,7 @@ protected:
 
 private:
     const std::shared_ptr<Body> body_;
+    const QColor color_;
 };
 
 #endif // BODYGRAPHICSITEM_HPP

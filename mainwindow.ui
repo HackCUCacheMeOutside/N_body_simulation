@@ -74,31 +74,60 @@
              <item row="5" column="0">
               <widget class="QLabel" name="label_7">
                <property name="text">
-                <string>Velocity X (km/s)</string>
+                <string>Velocity X</string>
                </property>
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QDoubleSpinBox" name="positionYInput"/>
+              <widget class="QDoubleSpinBox" name="positionYInput">
+               <property name="maximum">
+                <double>500.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>0.000000000000000</double>
+               </property>
+              </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QDoubleSpinBox" name="massInput"/>
+              <widget class="QDoubleSpinBox" name="massInput">
+               <property name="maximum">
+                <double>1000000000.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>50.000000000000000</double>
+               </property>
+              </widget>
              </item>
              <item row="3" column="0">
               <widget class="QLabel" name="label_5">
                <property name="text">
-                <string>Position X (km)</string>
+                <string>Position X</string>
                </property>
               </widget>
              </item>
              <item row="5" column="1">
-              <widget class="QDoubleSpinBox" name="velocityXInput"/>
+              <widget class="QDoubleSpinBox" name="velocityXInput">
+               <property name="maximum">
+                <double>30.000000000000000</double>
+               </property>
+              </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLineEdit" name="NameInput"/>
+              <widget class="QLineEdit" name="NameInput">
+               <property name="text">
+                <string>Planet</string>
+               </property>
+              </widget>
              </item>
              <item row="6" column="1">
-              <widget class="QDoubleSpinBox" name="velocityYInput"/>
+              <widget class="QDoubleSpinBox" name="velocityYInput">
+               <property name="maximum">
+                <double>30.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>10.000000000000000</double>
+               </property>
+              </widget>
              </item>
              <item row="7" column="1">
               <widget class="QComboBox" name="ColorInput">
@@ -147,29 +176,43 @@
               </widget>
              </item>
              <item row="3" column="1">
-              <widget class="QDoubleSpinBox" name="positionXInput"/>
+              <widget class="QDoubleSpinBox" name="positionXInput">
+               <property name="maximum">
+                <double>500.000000000000000</double>
+               </property>
+               <property name="value">
+                <double>100.000000000000000</double>
+               </property>
+              </widget>
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_2">
                <property name="text">
-                <string>Mass(Kg)</string>
+                <string>Mass</string>
                </property>
               </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QDoubleSpinBox" name="radiusInput"/>
              </item>
              <item row="4" column="0">
               <widget class="QLabel" name="label_19">
                <property name="text">
-                <string>Position Y (km)</string>
+                <string>Position Y</string>
                </property>
               </widget>
              </item>
              <item row="6" column="0">
               <widget class="QLabel" name="label_20">
                <property name="text">
-                <string>Velocity Y (km/s)</string>
+                <string>Velocity Y</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QSpinBox" name="radiusInput">
+               <property name="maximum">
+                <number>25</number>
+               </property>
+               <property name="value">
+                <number>6</number>
                </property>
               </widget>
              </item>
