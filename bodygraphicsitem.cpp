@@ -38,5 +38,5 @@ void BodyGraphicsItem::advance(int step)
     if (!step)
         return;
 
-    setPos(body_->postion().toPointF());
+    setPos(body_->position().toPointF());
 }

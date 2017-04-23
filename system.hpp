@@ -5,7 +5,7 @@
 #include <vector>
 #include "body.hpp"
 
-constexpr double delta = 1; // Time interval
+constexpr double delta = 0.005; // Time interval
 
 class Body;
 class MainWindow;
@@ -32,7 +32,7 @@ public:
     std::vector<std::shared_ptr<Body> > bodys() const;
 
 private:
-    std::vector<std::shared_ptr<Body>> bodys_;
+    std::vector<std::shared_ptr<Body>> bodies_;
     MainWindow *const mainWindow_; // Back pointer to the main window
 };
 

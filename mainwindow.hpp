@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsView>
+#include <QTimer>
 #include "system.hpp"
 
 namespace Ui {
@@ -24,16 +25,20 @@ public:
     QGraphicsScene* scene() const;
 
     /// @brief Gets the system of main window
-    System system() const;
+    System* system() const;
 
     /// @brief Updates the data
+public slots:
     void update();
 
 private:
     Ui::MainWindow *ui_;
     QGraphicsView *graphicsView_;
     std::unique_ptr<QGraphicsScene> scene_;
-    System system_;
+    std::unique_ptr<System> system_;
+
+    QTimer timer_; // Timer for graphics
+    QTimer update_timer_; // Timer for update
 };
 
 #endif // MAINWINDOW_HPP

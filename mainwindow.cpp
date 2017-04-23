@@ -1,5 +1,4 @@
 #include <QGraphicsView>
-#include <QTimer>
 
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
@@ -10,7 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_(new Ui::MainWindow),
     graphicsView_{},
     scene_{std::make_unique<QGraphicsScene>()},
-    system_(this)
+    system_(std::make_unique<System>(this)),
+    timer_{},
+    update_timer_{}
 {
     scene_->setSceneRect(-300, -300, 600, 600);
 
@@ -20,13 +21,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui_->horizontalLayout->addWidget(graphicsView_);
 
-    QTimer timer;
-    QObject::connect(&timer, SIGNAL(timeout()), scene_.get(), SLOT(advance()));
-    timer.start(1000 / 33);
+    connect(&timer_, SIGNAL(timeout()), scene_.get(), SLOT(advance()));
+    timer_.start(1000 / 33);
 
-    QTimer updates_timer;
-    QObject::connect(&updates_timer, SIGNAL(timeout()), scene_.get(), SLOT(update()));
-    updates_timer.start(static_cast<int>(1000 * delta));
+    connect(&update_timer_, SIGNAL(timeout()), this, SLOT(update()));
+    update_timer_.start(1000 * delta);
 }
 
 MainWindow::~MainWindow()
@@ -39,12 +38,12 @@ QGraphicsScene* MainWindow::scene() const
     return scene_.get();
 }
 
-System MainWindow::system() const
+System* MainWindow::system() const
 {
-    return system_;
+    return system_.get();
 }
 
 void MainWindow::update()
 {
-    system_.update();
+    system_->update();
 }

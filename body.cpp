@@ -2,6 +2,8 @@
 #include "system.hpp"
 #include "cmath"
 
+#include <iostream>
+
 Body::Body(std::string name, double mass, double radius,
            QVector2D initPosition, QVector2D initVelocity) :
     name_{name},
@@ -17,26 +19,24 @@ Body::Body(std::string name, double mass, double radius,
 void Body::update(const System& system)
 {
     QVector2D netGravitationalForce{0, 0};
-    constexpr double G = 1;
+    constexpr double G = 0.01;
 
     // Calculates force
     const auto bodies = system.bodys();
     for (auto body_ptr : bodies) {
-        if (body_ptr->name() == name_) {
+        if (position_.distanceToPoint(body_ptr->position()) < 0.01f) {
             continue;
         }
         auto length_cube = std::abs(std::pow(position_.distanceToPoint(body_ptr->position()), 3));
-        netGravitationalForce += (G * mass_ * body_ptr->mass()) / length_cube * (position_ - body_ptr->position());
-
-        //velocity_ = velocity_ + (ace)
-
+        netGravitationalForce += (G * mass_ * body_ptr->mass())
+                / length_cube * (body_ptr->position() - position_);
     }
     // Todo: Updates the acceleration
     acceleration_ = netGravitationalForce / mass_;
 
     // Todo: Updates the velocity and position
-    velocity_ += acceleration_;
-    position_ += velocity_;
+    velocity_ += acceleration_ * delta;
+    position_ += velocity_ * delta;
 }
 
 std::string Body::name() const
