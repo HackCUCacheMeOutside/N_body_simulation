@@ -4,8 +4,11 @@
 
 #include <iostream>
 
+static std::uint64_t current_id = 0;
+
 Body::Body(std::string name, double mass, double radius,
            QVector2D initPosition, QVector2D initVelocity) :
+    id_{current_id},
     name_{name},
     position_{initPosition},
     velocity_{initVelocity},
@@ -13,7 +16,7 @@ Body::Body(std::string name, double mass, double radius,
     mass_{mass},
     radius_{radius}
 {
-
+    ++current_id;
 }
 
 void Body::update(const System& system)
@@ -24,7 +27,7 @@ void Body::update(const System& system)
     // Calculates force
     const auto bodies = system.bodys();
     for (auto body_ptr : bodies) {
-        if (position_.distanceToPoint(body_ptr->position()) < 0.01f) {
+        if (id_ == body_ptr->id()) {
             continue;
         }
         auto length_cube = std::abs(std::pow(position_.distanceToPoint(body_ptr->position()), 3));
@@ -67,4 +70,9 @@ std::string Body::toString()
 double Body::radius() const
 {
     return radius_;
+}
+
+std::uint64_t Body::id() const
+{
+    return id_;
 }

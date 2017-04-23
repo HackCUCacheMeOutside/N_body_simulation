@@ -39,7 +39,13 @@ public:
     ///
     double radius() const;
 
+    ///
+    /// \brief Gets id of the body
+    ///
+    std::uint64_t id() const;
+
 private:
+    std::uint64_t id_; // Unique integar id for each body
     const std::string name_;
     QVector2D position_;
     QVector2D velocity_;

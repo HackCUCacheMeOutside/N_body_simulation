@@ -18,7 +18,8 @@ QRectF BodyGraphicsItem::boundingRect() const
 QPainterPath BodyGraphicsItem::shape() const
 {
     QPainterPath path;
-    path.addRect(-10, -10, 10, 10);
+    auto radius = static_cast<int>(body_->radius());
+    path.addRect(-radius, -radius, radius, radius);
     return path;
 }
 

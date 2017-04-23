@@ -25,7 +25,10 @@ MainWindow::MainWindow(QWidget *parent) :
     timer_.start(1000 / 33);
 
     connect(&update_timer_, SIGNAL(timeout()), this, SLOT(update()));
-    update_timer_.start(1000 * delta);
+    update_timer_.start(delta);
+
+    connect(ui_->addBodyButton, SIGNAL(clicked()), this, SLOT(addBodyFromGUI()));
+    connect(ui_->resetButtom, SIGNAL(clicked()), this, SLOT(clearBody()));
 }
 
 MainWindow::~MainWindow()
@@ -46,4 +49,25 @@ System* MainWindow::system() const
 void MainWindow::update()
 {
     system_->update();
+    graphicsView_->centerOn(system_->centerOfMass().toPointF());
+}
+
+void MainWindow::addBodyFromGUI()
+{
+    std::string name = ui_->NameInput->text().toStdString();
+    double mass = ui_->massInput->value();
+    double radius = ui_->massInput->value();
+
+    double x = ui_->positionXInput->value();
+    double y = ui_->positionYInput->value();
+
+    double dx = ui_->velocityXInput->value();
+    double dy = ui_->positionYInput->value();
+
+    system_->addBody(Body(name, mass, radius, QVector2D(x, y), QVector2D(dx, dy)));
+}
+
+void MainWindow::clearBody()
+{
+    system_->clearBody();
 }

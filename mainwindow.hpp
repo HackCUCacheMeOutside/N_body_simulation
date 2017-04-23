@@ -31,6 +31,10 @@ public:
 public slots:
     void update();
 
+private slots:
+    void addBodyFromGUI();
+    void clearBody();
+
 private:
     Ui::MainWindow *ui_;
     QGraphicsView *graphicsView_;

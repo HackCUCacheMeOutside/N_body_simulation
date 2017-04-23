@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <memory>
-#include <iostream>
 
 #include "mainwindow.hpp"
 #include "system.hpp"
@@ -17,11 +16,16 @@ void System::addBody(Body body)
 {
     shared_ptr<Body> body_ptr = std::make_shared<Body>(body);
     bodies_.push_back(body_ptr);
-    cout << bodies_.size() << "\n";
 
     auto bodyItem = new BodyGraphicsItem{body_ptr};
     bodyItem->setPos(body_ptr->position().toPointF());
     mainWindow_->scene()->addItem(bodyItem);
+}
+
+void System::clearBody()
+{
+    bodies_.clear();
+    mainWindow_->scene()->clear();
 }
 
 void System::update()
@@ -44,4 +48,17 @@ std::string System::toString()
 std::vector<std::shared_ptr<Body> > System::bodys() const
 {
     return bodies_;
+}
+
+QVector2D System::centerOfMass()
+{
+    QVector2D centerOfMass{0, 0};
+    double totalMass = 0;
+    for (auto i = bodies_.begin(), end = bodies_.end(); i != end; ++i) {
+        const auto mass = (*i)->mass();
+        centerOfMass += mass * (*i)->position();
+        totalMass += mass;
+    }
+    centerOfMass /= totalMass;
+    return centerOfMass;
 }

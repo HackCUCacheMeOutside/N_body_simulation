@@ -3,9 +3,10 @@
 
 #include <memory>
 #include <vector>
+#include <QVector2D>
 #include "body.hpp"
 
-constexpr double delta = 0.005; // Time interval
+constexpr double delta = 50; // Time interval is ms
 
 class Body;
 class MainWindow;
@@ -22,6 +23,11 @@ public:
     void addBody(Body body);
 
     ///
+    /// \brief Clear all the bodies
+    ///
+    void clearBody();
+
+    ///
     /// \brief Updates the whole system
     ///
     void update();
@@ -29,11 +35,16 @@ public:
     std::string toString();
 
 
+    // Gets center of mass of the whole system
+    QVector2D centerOfMass();
+
+
     std::vector<std::shared_ptr<Body> > bodys() const;
 
 private:
     std::vector<std::shared_ptr<Body>> bodies_;
     MainWindow *const mainWindow_; // Back pointer to the main window
+
 };
 
 #endif // SYSTEM_HPP
