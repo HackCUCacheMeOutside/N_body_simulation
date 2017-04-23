@@ -50,15 +50,12 @@ std::vector<std::shared_ptr<Body> > System::bodys() const
     return bodies_;
 }
 
-QVector2D System::centerOfMass()
+int System::getDelta() const
 {
-    QVector2D centerOfMass{0, 0};
-    double totalMass = 0;
-    for (auto i = bodies_.begin(), end = bodies_.end(); i != end; ++i) {
-        const auto mass = (*i)->mass();
-        centerOfMass += mass * (*i)->position();
-        totalMass += mass;
-    }
-    centerOfMass /= totalMass;
-    return centerOfMass;
+    return delta_;
+}
+
+void System::setDelta(int value)
+{
+    delta_ = value;
 }

@@ -38,8 +38,8 @@ void Body::update(const System& system)
     acceleration_ = netGravitationalForce / mass_;
 
     // Todo: Updates the velocity and position
-    velocity_ += acceleration_ * delta / 1000;
-    position_ += velocity_ * delta / 1000;
+    velocity_ += acceleration_ * system.getDelta() / 1000;
+    position_ += velocity_ * system.getDelta() / 1000;
 }
 
 std::string Body::name() const

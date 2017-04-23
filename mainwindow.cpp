@@ -4,6 +4,8 @@
 #include "ui_mainwindow.h"
 #include "bodygraphicsitem.hpp"
 
+constexpr int frameRate = 1000 / 60;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui_(new Ui::MainWindow),
@@ -28,13 +30,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui_->horizontalLayout->addWidget(graphicsView_);
 
     connect(&timer_, SIGNAL(timeout()), scene_.get(), SLOT(advance()));
-    timer_.start(1000 / 33);
+    timer_.start(frameRate);
 
     connect(&update_timer_, SIGNAL(timeout()), this, SLOT(update()));
-    update_timer_.start(delta);
+    update_timer_.start(frameRate);
 
     connect(ui_->addBodyButton, SIGNAL(clicked()), this, SLOT(addBodyFromGUI()));
     connect(ui_->resetButtom, SIGNAL(clicked()), this, SLOT(clearBody()));
+    connect(ui_->pauseButton, SIGNAL(clicked()), this, SLOT(pauseButton()));
+    connect(ui_->timeStepInput, SIGNAL(valueChanged(int)), this, SLOT(changeDelta(int)));
 }
 
 MainWindow::~MainWindow()
@@ -55,7 +59,6 @@ System* MainWindow::system() const
 void MainWindow::update()
 {
     system_->update();
-    graphicsView_->centerOn(system_->centerOfMass().toPointF());
 }
 
 void MainWindow::addBodyFromGUI()
@@ -94,4 +97,24 @@ void MainWindow::addBodyFromGUI()
 void MainWindow::clearBody()
 {
     system_->clearBody();
+}
+
+void MainWindow::changeDelta(int newDelta)
+{
+    system_->setDelta(newDelta);
+}
+
+void MainWindow::pauseButton()
+{
+    if (is_pause_) {
+        update_timer_.start(frameRate);
+
+        ui_->pauseButton->setText("Pause");
+        is_pause_ = false;
+    } else {
+        update_timer_.stop();
+
+        ui_->pauseButton->setText("Continue");
+        is_pause_ = true;
+    }
 }

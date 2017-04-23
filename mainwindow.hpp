@@ -34,6 +34,8 @@ public slots:
 private slots:
     void addBodyFromGUI();
     void clearBody();
+    void changeDelta(int newDelta);
+    void pauseButton(); // When we press pause/continue button
 
 private:
     Ui::MainWindow *ui_;
@@ -43,6 +45,8 @@ private:
 
     QTimer timer_; // Timer for graphics
     QTimer update_timer_; // Timer for update
+
+    bool is_pause_ = false; // Flag indicates pause of the simulation
 };
 
 #endif // MAINWINDOW_HPP
