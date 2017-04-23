@@ -386,6 +386,16 @@
               <string>Trappist-1</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>There body problem</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Ballet</string>
+             </property>
+            </item>
            </widget>
            <widget class="QPushButton" name="gotoPresetButton">
             <property name="geometry">

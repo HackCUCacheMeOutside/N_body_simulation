@@ -2,8 +2,6 @@
 #include "system.hpp"
 #include "cmath"
 
-#include <iostream>
-
 static std::uint64_t current_id = 0;
 
 Body::Body(std::string name, double mass, double radius,
