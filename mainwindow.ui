@@ -263,7 +263,7 @@
              <x>0</x>
              <y>410</y>
              <width>211</width>
-             <height>281</height>
+             <height>141</height>
             </rect>
            </property>
            <property name="title">
@@ -347,6 +347,52 @@
             </property>
             <property name="text">
              <string>300 Fast</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>560</y>
+             <width>211</width>
+             <height>111</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string>Presets</string>
+           </property>
+           <widget class="QComboBox" name="PresetsInput">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>20</y>
+              <width>171</width>
+              <height>28</height>
+             </rect>
+            </property>
+            <item>
+             <property name="text">
+              <string>Solar System</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Binary Star, Planet</string>
+             </property>
+            </item>
+           </widget>
+           <widget class="QPushButton" name="gotoPresetButton">
+            <property name="geometry">
+             <rect>
+              <x>90</x>
+              <y>60</y>
+              <width>85</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Goto preset</string>
             </property>
            </widget>
           </widget>

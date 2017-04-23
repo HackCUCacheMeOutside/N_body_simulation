@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui_->addBodyButton, SIGNAL(clicked()), this, SLOT(addBodyFromGUI()));
     connect(ui_->resetButtom, SIGNAL(clicked()), this, SLOT(clearBody()));
     connect(ui_->pauseButton, SIGNAL(clicked()), this, SLOT(pauseButton()));
+    connect(ui_->gotoPresetButton, SIGNAL(clicked()), this, SLOT(gotoPreset()));
     connect(ui_->timeStepInput, SIGNAL(valueChanged(int)), this, SLOT(changeDelta(int)));
 }
 
@@ -117,4 +118,27 @@ void MainWindow::pauseButton()
         ui_->pauseButton->setText("Continue");
         is_pause_ = true;
     }
+}
+
+void MainWindow::gotoPreset()
+{
+    system_->clearBody();
+
+    auto presetText = ui_->PresetsInput->currentText();
+
+    if (presetText == "Solar System") {
+        system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{50, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{60, 0}, QVector2D{0, 10}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{70, 0}, QVector2D{0, 10}}, Qt::blue);
+        //system_->addBody(Body{"Moon", 1, 5, QVector2D{72.7, 0}, QVector2D{0, 10}}, Qt::white);
+        system_->addBody(Body{"Mars", 30, 7, QVector2D{90, 0}, QVector2D{0, 10}}, Qt::red);
+        system_->addBody(Body{"Jupitor", 200, 14, QVector2D{120, 0}, QVector2D{0, 10}}, Qt::red);
+        system_->addBody(Body{"Saturn", 150, 12, QVector2D{140, 0}, QVector2D{0, 10}}, Qt::yellow);
+        system_->addBody(Body{"Uranus", 100, 10, QVector2D{170, 0}, QVector2D{0, 10}}, Qt::cyan);
+        system_->addBody(Body{"Neptune", 100, 10, QVector2D{190, 0}, QVector2D{0, 10}}, Qt::blue);
+    } else if  (presetText == "Binary Star, Planet") {
+        //color = Qt::blue;
+    }
+
 }

@@ -36,6 +36,7 @@ private slots:
     void clearBody();
     void changeDelta(int newDelta);
     void pauseButton(); // When we press pause/continue button
+    void gotoPreset(); // Goto user selected preset condition
 
 private:
     Ui::MainWindow *ui_;
