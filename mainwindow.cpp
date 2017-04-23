@@ -163,6 +163,21 @@ void MainWindow::gotoPreset()
                               QVector2D(speed, speed)), Qt::yellow);
         system_->addBody(Body("Body4", mass, 15, QVector2D(-distance, -distance),
                               QVector2D(speed, -speed)), Qt::green);
-    }
-
-}
+    } else if (presetText == "Apocalypse - Blackhole") {
+        system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{52, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -10}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Black Hole", 40000, 5, QVector2D{500, 500}, QVector2D{-10, -8}}, QColor{128, 0, 128});
+    } else if  (presetText == "Hyperbolic") {
+        system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{52, 0}, QVector2D{0, 12}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -12}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Asteroid #1", 2, 2, QVector2D{-373, -380}, QVector2D{16, 13}}, Qt::white);
+        system_->addBody(Body{"Asteroid #2", 2, 2, QVector2D{-320, -3700}, QVector2D{14, 14}}, Qt::white);
+        system_->addBody(Body{"Asteroid #3", 2, 2, QVector2D{-320, -375}, QVector2D{13, 14}}, Qt::white);
+        system_->addBody(Body{"Asteroid #4", 2, 2, QVector2D{-380, -360}, QVector2D{13, 12}}, Qt::white);
+        system_->addBody(Body{"Asteroid #5", 2, 2, QVector2D{-340, -400}, QVector2D{12, 11}}, Qt::white);
+        system_->addBody(Body{"Asteroid #6", 2, 2, QVector2D{-400, -380}, QVector2D{13, 11}}, Qt::white);
+}}
