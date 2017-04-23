@@ -373,12 +373,17 @@
             </property>
             <item>
              <property name="text">
-              <string>Solar System</string>
+              <string>Inner Solar System</string>
              </property>
             </item>
             <item>
              <property name="text">
               <string>Binary Star, Planet</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Asteriod Belt</string>
              </property>
             </item>
            </widget>

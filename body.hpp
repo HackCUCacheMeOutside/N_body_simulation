@@ -51,7 +51,7 @@ private:
     QVector2D velocity_;
     QVector2D acceleration_;
 
-    const double mass_;
+    double mass_;
     const double radius_; // Radius decides how big the body look on string
 };
 

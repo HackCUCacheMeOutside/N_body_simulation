@@ -30,7 +30,10 @@ void Body::update(const System& system)
         if (id_ == body_ptr->id()) {
             continue;
         }
-        auto length_cube = std::abs(std::pow(position_.distanceToPoint(body_ptr->position()), 3));
+
+        const auto distance = position_.distanceToPoint(body_ptr->position());
+
+        const auto length_cube = std::abs(std::pow(distance, 3));
         netGravitationalForce += (G * mass_ * body_ptr->mass())
                 / length_cube * (body_ptr->position() - position_);
     }

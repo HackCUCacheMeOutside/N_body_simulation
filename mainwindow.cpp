@@ -1,4 +1,6 @@
 #include <QGraphicsView>
+#include <QMatrix2x2>
+#include <cmath>
 
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
@@ -126,19 +128,19 @@ void MainWindow::gotoPreset()
 
     auto presetText = ui_->PresetsInput->currentText();
 
-    if (presetText == "Solar System") {
+    if (presetText == "Inner Solar System") {
         system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
-        system_->addBody(Body{"Mercury", 20, 6, QVector2D{50, 0}, QVector2D{0, 10}}, Qt::blue);
-        system_->addBody(Body{"Venus", 30, 7, QVector2D{60, 0}, QVector2D{0, 10}}, Qt::yellow);
-        system_->addBody(Body{"Earth", 40, 8, QVector2D{70, 0}, QVector2D{0, 10}}, Qt::blue);
-        //system_->addBody(Body{"Moon", 1, 5, QVector2D{72.7, 0}, QVector2D{0, 10}}, Qt::white);
-        system_->addBody(Body{"Mars", 30, 7, QVector2D{90, 0}, QVector2D{0, 10}}, Qt::red);
-        system_->addBody(Body{"Jupitor", 200, 14, QVector2D{120, 0}, QVector2D{0, 10}}, Qt::red);
-        system_->addBody(Body{"Saturn", 150, 12, QVector2D{140, 0}, QVector2D{0, 10}}, Qt::yellow);
-        system_->addBody(Body{"Uranus", 100, 10, QVector2D{170, 0}, QVector2D{0, 10}}, Qt::cyan);
-        system_->addBody(Body{"Neptune", 100, 10, QVector2D{190, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{70, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -10}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Moon", 1, 5, QVector2D{145, 1}, QVector2D{0, 11.5}}, Qt::white);
+        system_->addBody(Body{"Mars", 30, 7, QVector2D{-204, 0}, QVector2D{0, -7}}, Qt::red);
     } else if  (presetText == "Binary Star, Planet") {
-        //color = Qt::blue;
+        system_->addBody(Body("Sol", 15000, 23, QVector2D(-100, 0), QVector2D(0, -5)), Qt::blue);
+        system_->addBody(Body("Sol2", 12000, 20, QVector2D(100, 0), QVector2D(0, 6)), Qt::white);
+        system_->addBody(Body{"Planet", 30, 5, QVector2D{-50, 0}, QVector2D{0, 12}}, Qt::yellow);
+    } else if (presetText == "There body problem") {
+
     }
 
 }
