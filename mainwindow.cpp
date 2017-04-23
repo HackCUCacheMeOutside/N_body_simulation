@@ -128,17 +128,23 @@ void MainWindow::gotoPreset()
 
     if (presetText == "Solar System") {
         system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
-        system_->addBody(Body{"Mercury", 20, 6, QVector2D{50, 0}, QVector2D{0, 10}}, Qt::blue);
-        system_->addBody(Body{"Venus", 30, 7, QVector2D{60, 0}, QVector2D{0, 10}}, Qt::yellow);
-        system_->addBody(Body{"Earth", 40, 8, QVector2D{70, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{52, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -10}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
         //system_->addBody(Body{"Moon", 1, 5, QVector2D{72.7, 0}, QVector2D{0, 10}}, Qt::white);
         system_->addBody(Body{"Mars", 30, 7, QVector2D{90, 0}, QVector2D{0, 10}}, Qt::red);
-        system_->addBody(Body{"Jupitor", 200, 14, QVector2D{120, 0}, QVector2D{0, 10}}, Qt::red);
-        system_->addBody(Body{"Saturn", 150, 12, QVector2D{140, 0}, QVector2D{0, 10}}, Qt::yellow);
-        system_->addBody(Body{"Uranus", 100, 10, QVector2D{170, 0}, QVector2D{0, 10}}, Qt::cyan);
-        system_->addBody(Body{"Neptune", 100, 10, QVector2D{190, 0}, QVector2D{0, 10}}, Qt::blue);
-    } else if  (presetText == "Binary Star, Planet") {
-        //color = Qt::blue;
+        //system_->addBody(Body{"Jupitor", 200, 14, QVector2D{120, 0}, QVector2D{0, 10}}, Qt::red);
+        //system_->addBody(Body{"Saturn", 150, 12, QVector2D{140, 0}, QVector2D{0, 10}}, Qt::yellow);
+        //system_->addBody(Body{"Uranus", 100, 10, QVector2D{170, 0}, QVector2D{0, 10}}, Qt::cyan);
+        //system_->addBody(Body{"Neptune", 100, 10, QVector2D{190, 0}, QVector2D{0, 10}}, Qt::blue);
+    } else if  (presetText == "Trappist-1") {
+        system_->addBody(Body("Trappist-1", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
+        system_->addBody(Body{"Trappist-b", 31.875, 6, QVector2D{50, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Trappist-c", 48, 7, QVector2D{-85, 0}, QVector2D{0, -10}}, Qt::yellow);
+        system_->addBody(Body{"Trappist-d", 15, 8, QVector2D{115, 0}, QVector2D{0, 9}}, Qt::blue);
+        system_->addBody(Body("Trappist-e", 23.25, 20, QVector2D(-140.27f, 0), QVector2D(0, -9)), Qt::red);
+        system_->addBody(Body{"Trappist-f", 25.5, 6, QVector2D{182.18f, 0}, QVector2D{0, 8}}, Qt::blue);
+        system_->addBody(Body{"Trappist-g", 50, 7, QVector2D{-220, 0}, QVector2D{0, -8}}, Qt::yellow);
     }
 
 }

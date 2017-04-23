@@ -381,6 +381,11 @@
               <string>Binary Star, Planet</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>Trappist-1</string>
+             </property>
+            </item>
            </widget>
            <widget class="QPushButton" name="gotoPresetButton">
             <property name="geometry">
@@ -410,7 +415,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>28</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
