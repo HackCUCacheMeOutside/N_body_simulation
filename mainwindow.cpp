@@ -131,7 +131,7 @@ void MainWindow::gotoPreset()
         system_->addBody(Body{"Mercury", 20, 6, QVector2D{52, 0}, QVector2D{0, 10}}, Qt::blue);
         system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -10}}, Qt::yellow);
         system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
-        //system_->addBody(Body{"Moon", 1, 5, QVector2D{72.7, 0}, QVector2D{0, 10}}, Qt::white);
+        system_->addBody(Body{"Moon", 1, 5, QVector2D{72.7f, 0}, QVector2D{0, 10}}, Qt::white);
         system_->addBody(Body{"Mars", 30, 7, QVector2D{90, 0}, QVector2D{0, 10}}, Qt::red);
         //system_->addBody(Body{"Jupitor", 200, 14, QVector2D{120, 0}, QVector2D{0, 10}}, Qt::red);
         //system_->addBody(Body{"Saturn", 150, 12, QVector2D{140, 0}, QVector2D{0, 10}}, Qt::yellow);
@@ -145,6 +145,21 @@ void MainWindow::gotoPreset()
         system_->addBody(Body("Trappist-e", 23.25, 20, QVector2D(-140.27f, 0), QVector2D(0, -9)), Qt::red);
         system_->addBody(Body{"Trappist-f", 25.5, 6, QVector2D{182.18f, 0}, QVector2D{0, 8}}, Qt::blue);
         system_->addBody(Body{"Trappist-g", 50, 7, QVector2D{-220, 0}, QVector2D{0, -8}}, Qt::yellow);
-    }
-
-}
+    }else if  (presetText == "Apocalypse - Blackhole") {
+        system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{52, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -10}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Black Hole", 40000, 20, QVector2D{500, 500}, QVector2D{-10, -8}}, Qt::white);
+    }else if  (presetText == "Apocalypse - Asteroid Collisions") {
+        system_->addBody(Body("Sol", 10000, 20, QVector2D(0, 0), QVector2D(0, 0)), Qt::red);
+        system_->addBody(Body{"Mercury", 20, 6, QVector2D{52, 0}, QVector2D{0, 12}}, Qt::blue);
+        system_->addBody(Body{"Venus", 30, 7, QVector2D{-97, 0}, QVector2D{0, -12}}, Qt::yellow);
+        system_->addBody(Body{"Earth", 40, 8, QVector2D{134, 0}, QVector2D{0, 10}}, Qt::blue);
+        system_->addBody(Body{"Asteroid #1", 20, 20, QVector2D{-373, -380}, QVector2D{16, 13}}, Qt::white);
+        system_->addBody(Body{"Asteroid #2", 25, 20, QVector2D{-320, -3700}, QVector2D{14, 14}}, Qt::white);
+        system_->addBody(Body{"Asteroid #3", 25, 20, QVector2D{-320, -375}, QVector2D{13, 14}}, Qt::white);
+        system_->addBody(Body{"Asteroid #4", 25, 20, QVector2D{-380, -360}, QVector2D{13, 12}}, Qt::white);
+        system_->addBody(Body{"Asteroid #5", 23, 20, QVector2D{-340, -400}, QVector2D{12, 11}}, Qt::white);
+        system_->addBody(Body{"Asteroid #6", 25, 20, QVector2D{-400, -380}, QVector2D{13, 11}}, Qt::white);
+}}

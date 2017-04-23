@@ -378,6 +378,16 @@
             </item>
             <item>
              <property name="text">
+              <string>Apocalypse - Asteroid Collisions</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Apocalypse - Blackhole</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
               <string>Binary Star, Planet</string>
              </property>
             </item>
